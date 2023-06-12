@@ -22,7 +22,6 @@ Staphylococcus epidermidis,1282,Gram-positive bacteria
 Streptococcus pyogenes (Group A Streptococcus),1314,Gram-positive bacteria
 Streptococcus agalactiae (Group B Streptococcus),1311,Gram-positive bacteria
 Streptococcus pneumoniae,1313,Gram-positive bacteria
-Enterococcus faecalis,1351,Gram-positive bacteria
 Enterococcus faecium,1352,Gram-positive bacteria
 Bacillus subtilis,1423,Gram-positive bacteria
 Bacillus cereus,1396,Gram-positive bacteria
