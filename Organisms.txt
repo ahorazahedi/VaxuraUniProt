@@ -56,7 +56,7 @@ Paracoccidioides brasiliensis,121759,Fungal organisms
 Sporothrix schenckii,29908,Fungal organisms
 Candida glabrata,5478,Fungal organisms
 Trichosporon asteroides,82511,Fungal organisms
-Trichosporon japonicum = 85853,Fungal organisms
+Trichosporon japonicum , 85853,Fungal organisms
 Rhizopus oryzae (Mucormycosis agent),64495,Fungal organisms
 Amoeba proteus,5775,Protist organisms
 Paramecium caudatum,5885,Protist organisms
