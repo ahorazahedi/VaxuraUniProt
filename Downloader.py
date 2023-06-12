@@ -137,7 +137,7 @@ if __name__== "__main__":
                      print(f"File for Organism , {organism_id} Exist Pass From that Organism")
                      continue
                 
-                for accession_id in tqdm(get_organism_accession_list(int(organism_id))[:] , desc=f"[{index+1} / {len(lines)}]"):
+                for accession_id in tqdm(get_organism_accession_list(int(organism_id))[:3] , desc=f"[{index+1} / {len(lines)}]"):
                  
                     accession_sequence = get_fasta_string(accession_id)
                     response_json_item = get_accession_data(accession_id)
