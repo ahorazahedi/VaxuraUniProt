@@ -1,0 +1,98 @@
+Escherichia coli (E. coli),562,Gram-negative bacteria
+Klebsiella pneumoniae,573,Gram-negative bacteria
+Salmonella enterica,28901,Gram-negative bacteria
+Shigella dysenteriae,622,Gram-negative bacteria
+Helicobacter pylori,210,Gram-negative bacteria
+Pseudomonas aeruginosa,287,Gram-negative bacteria
+Neisseria gonorrhoeae,485,Gram-negative bacteria
+Neisseria meningitidis,487,Gram-negative bacteria
+Haemophilus influenzae,727,Gram-negative bacteria
+Legionella pneumophila,446,Gram-negative bacteria
+Bordetella pertussis,520,Gram-negative bacteria
+Vibrio cholerae,666,Gram-negative bacteria
+Yersinia pestis,632,Gram-negative bacteria
+Proteus mirabilis,584,Gram-negative bacteria
+Campylobacter jejuni,197,Gram-negative bacteria
+Acinetobacter baumannii,470,Gram-negative bacteria
+Brucella abortus,235,Gram-negative bacteria
+Francisella tularensis,263,Gram-negative bacteria
+Serratia marcescens,615,Gram-negative bacteria
+Staphylococcus aureus,1280,Gram-positive bacteria
+Staphylococcus epidermidis,1282,Gram-positive bacteria
+Streptococcus pyogenes (Group A Streptococcus),1314,Gram-positive bacteria
+Streptococcus agalactiae (Group B Streptococcus),1311,Gram-positive bacteria
+Streptococcus pneumoniae,1313,Gram-positive bacteria
+Enterococcus faecalis,1351,Gram-positive bacteria
+Enterococcus faecium,1352,Gram-positive bacteria
+Bacillus subtilis,1423,Gram-positive bacteria
+Bacillus cereus,1396,Gram-positive bacteria
+Clostridium perfringens,1502,Gram-positive bacteria
+Clostridium difficile,1283341,Gram-positive bacteria
+Clostridium botulinum,1491,Gram-positive bacteria
+Listeria monocytogenes,1639,Gram-positive bacteria
+Mycobacterium tuberculosis,1773,Gram-positive bacteria
+Mycobacterium leprae,1769,Gram-positive bacteria
+Corynebacterium diphtheriae,1717,Gram-positive bacteria
+Corynebacterium striatum,43770,Gram-positive bacteria
+Propionibacterium sp,1977903,Gram-positive bacteria
+Actinomyces israelii,1659,Gram-positive bacteria
+Nocardia asteroides,1824,Gram-positive bacteria
+Candida albicans,5476,Fungal organisms
+Aspergillus fumigatus,746128,Fungal organisms
+Penicillium chrysogenum,5076,Fungal organisms
+Saccharomyces cerevisiae ,4932,Fungal organisms
+Cryptococcus neoformans,5207,Fungal organisms
+Pneumocystis jirovecii,42068,Fungal organisms
+Coccidioides immitis,5501,Fungal organisms
+Histoplasma capsulatum,149547,Fungal organisms
+Malassezia furfur,55194,Fungal organisms
+Trichophyton rubrum,5551,Fungal organisms
+Microsporum ferrugineum,77205,Fungal organisms
+Microsporum equinum,74041,Fungal organisms
+Microsporum distortum,101202,Fungal organisms
+Rhizopus oryzae,64495,Fungal organisms
+Cladosporium,2292787,Fungal organisms
+Blastomyces dermatitidis,447095,Fungal organisms
+Paracoccidioides brasiliensis,121759,Fungal organisms
+Sporothrix schenckii,29908,Fungal organisms
+Candida glabrata,5478,Fungal organisms
+Trichosporon asteroides,82511,Fungal organisms
+Trichosporon japonicum = 85853,Fungal organisms
+Rhizopus oryzae (Mucormycosis agent),64495,Fungal organisms
+Amoeba proteus,5775,Protist organisms
+Paramecium caudatum,5885,Protist organisms
+Euglena gracilis,3039,Protist organisms
+Trypanosoma brucei,5691,Protist organisms
+Plasmodium falciparum,5833,Protist organisms
+Dictyostelium discoideum,44689,Protist organisms
+Giardia lamblia,29255,Protist organisms
+Toxoplasma gondii,5811,Protist organisms
+Trichomonas vaginalis,5722,Protist organisms
+Leishmania donovani,5661,Protist organisms
+Stentor coeruleus,5963,Protist organisms
+Volvox,55411,Protist organisms
+Chlamydomonas reinhardtii,3055,Protist organisms
+Foraminifera,1415198,Protist organisms
+Choanoflagellates,429456,Protist organisms
+Eimeria uekii,2163550,Protist organisms
+Naegleria fowleri,5763,Protist organisms
+Homo sapiens,9606,Animal organisms
+Canis lupus familiaris,9615,Animal organisms
+Felis catus,9685,Animal organisms
+Equus caballus,9796,Animal organisms
+Bos taurus,9913,Animal organisms
+Sus scrofa domesticus,9825,Animal organisms
+Ovis aries,9940,Animal organisms
+Gallus gallus,9031,Animal organisms
+Mus musculus,10090,Animal organisms
+Rattus norvegicus,10116,Animal organisms
+Capra hircus,9925,Animal organisms
+Oryctolagus cuniculus,9986,Animal organisms
+Serinus canaria,9135,Animal organisms
+Taeniopygia guttata,59729,Animal organisms
+Cavia porcellus,10141,Animal organisms
+Melopsittacus undulatus,13146,Animal organisms
+Carassius auratus,7957,Animal organisms
+Danio rerio,7955,Animal organisms
+Apis mellifera,7460,Animal organisms
+Drosophila melanogaster,7227,Animal organisms
