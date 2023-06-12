@@ -52,10 +52,10 @@ pip install biopython
 
 ## Usage
 
-To run the script, you can use the command below. Replace `<organism>` with the name of the organism you want to extract the proteins information for:
+To run the script, you can use the command below.Update Organisms.txt Based on its Default Format And Get Results in Download Folder It Also Zip When all jobs are Done To Make its Transfer Easily
 
 ```bash
-python uniprot_organism_proteins_extractor.py --organism "<organism>"
+python Downloader.py
 ```
 
 This will create a CSV file named `uniprot_<organism>_proteins.csv` in the current directory.
