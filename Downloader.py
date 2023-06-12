@@ -133,7 +133,7 @@ if __name__== "__main__":
                 organism_cat = parsed_line[2][:-1]
 
 
-                if os.path.exists(f"./downloads/{organism_id}.csv"):
+                if os.path.exists(os.path.join(output_path , f"{organism_id}.csv")):
                      print(f"File for Organism , {organism_id} Exist Pass From that Organism")
                      continue
                 
