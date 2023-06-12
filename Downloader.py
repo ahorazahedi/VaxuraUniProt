@@ -106,6 +106,7 @@ def get_fasta_string(accession_id ,fetch_url = "https://rest.uniprot.org/uniprot
 if __name__== "__main__":
 
 
+    print("MEOW")
 
     parser = argparse.ArgumentParser(description="Read File")
     parser.add_argument("--input" , default='./Organisms.txt')
