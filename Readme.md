@@ -81,7 +81,7 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 ## Authors
 
-- **Ahora Zahedi** - *Initial work* - [Your GitHub Username](https://github.com/ahorazahedi)
+- **Ahora Zahedi** - *Initial work* - [Ahora zahedi](https://github.com/ahorazahedi)
 
 See also the list of [contributors](https://github.com/ahorazahedi/VaxuraUniProt/contributors) who participated in this project.
 
