@@ -65,7 +65,7 @@ def get_location_from_response_json(response_json):
 
         list_of_locations_that_protein_exist = []
 
-        if not response_json['comments']:
+        if not response_json.get('comments'):
              return []
 
         reponse_comments = response_json['comments']
