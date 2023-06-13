@@ -7,6 +7,7 @@ import zipfile
 import pandas as pd
 from tqdm import tqdm
 from Bio import SeqIO
+from requests.exceptions import RequestException
 
 
 def zip_folder(folder_path, output_path):
@@ -18,28 +19,34 @@ def zip_folder(folder_path, output_path):
 
 
 def get_accession_list(params, headers={"accept": "application/json"}, search_url="https://rest.uniprot.org/uniprotkb/search"):
-    params["fields"] = "accession"
-    results = []
-    response = requests.get(search_url, params=params, headers=headers)
-    response_json = response.json()
-    results.extend(response_json['results'])
 
-    while True:
-        link_header = response.headers.get('Link')
+    try:
 
-        if link_header:
-            next_page_url = link_header.split(';')[0].strip('<>')
+        params["fields"] = "accession"
+        results = []
+        response = requests.get(search_url, params=params, headers=headers)
+        response_json = response.json()
+        results.extend(response_json['results'])
 
-            response = requests.get(next_page_url, headers=headers)
-            response_json = response.json()
-            results.extend(response_json['results'])
+        while True:
+            link_header = response.headers.get('Link')
 
-        else:
-            break
+            if link_header:
+                next_page_url = link_header.split(';')[0].strip('<>')
 
-    output = [item['primaryAccession'] for item in results]
+                response = requests.get(next_page_url, headers=headers)
+                response_json = response.json()
+                results.extend(response_json['results'])
 
-    return output
+            else:
+                break
+
+        output = [item['primaryAccession'] for item in results]
+        return output
+    except RequestException as e:
+        time.sleep(60)
+        print("Network Issue Trying ...")
+        return get_accession_list(params)
 
 
 def get_organism_accession_list(organism_id):
@@ -66,18 +73,14 @@ def get_location_from_response_json(response_json):
         list_of_locations_that_protein_exist = []
 
         if not response_json.get('comments'):
-             return []
+            return []
 
         reponse_comments = response_json['comments']
 
-
-
-
-      
         filtered_comments = [item for item in reponse_comments if item.get(
             "commentType") == "SUBCELLULAR LOCATION"]
 
-        if len(filtered_comments) : 
+        if len(filtered_comments):
             filterd_items = filtered_comments[0]['subcellularLocations']
 
             for filterd_item in filterd_items:
@@ -92,25 +95,44 @@ def get_location_from_response_json(response_json):
         return []
 
 
-def get_fasta_string(accession_id ,fetch_url = "https://rest.uniprot.org/uniprotkb/" ):
-    response_fasta = requests.get(fetch_url + accession_id + ".fasta", headers={"accept": "text/x-fasta"}).text
+def get_fasta_string(accession_id, fetch_url="https://rest.uniprot.org/uniprotkb/"):
+    response_fasta = requests.get(
+        fetch_url + accession_id + ".fasta", headers={"accept": "text/x-fasta"}).text
 
     fasta_io = StringIO(response_fasta)
     seq_output = ""
     for record in SeqIO.parse(fasta_io, "fasta"):
 
-        seq_output =  str(record.seq)
-  
+        seq_output = str(record.seq)
+
     return seq_output
 
-if __name__== "__main__":
 
+def run(accession_id, output_final,  organism_id, organism_name, organism_cat):
+    try:
+        accession_sequence = get_fasta_string(accession_id)
+        response_json_item = get_accession_data(accession_id)
+        locations = get_location_from_response_json(response_json_item)
+
+        if len(locations):
+            output_final.append([
+                accession_id, accession_sequence, ", ".join(
+                    locations), organism_id, organism_name, organism_cat
+            ])
+        return output_final
+    except RequestException as e:
+        print("NetwrokConnection Issue  Waiting for 2 min to prevent Code Crash on :", accession_id)
+        time.sleep(120)
+        run(accession_id)
+
+
+if __name__ == "__main__":
 
     print("MEOW")
 
     parser = argparse.ArgumentParser(description="Read File")
-    parser.add_argument("--input" , default='./Organisms.txt')
-    parser.add_argument("--output" , default='./downloads')
+    parser.add_argument("--input", default='./Organisms.txt')
+    parser.add_argument("--output", default='./downloads')
 
     args = parser.parse_args()
 
@@ -121,41 +143,36 @@ if __name__== "__main__":
         print("Folder Not Found Create Download Folder")
         os.makedirs(output_path)
 
-    try : 
+    try:
 
-        with open(file_name , 'r') as file:
+        with open(file_name, 'r') as file:
             lines = file.readlines()
-            for index , line in enumerate(lines[:]) :
+            for index, line in enumerate(lines[:]):
                 output_final = []
                 parsed_line = line.split(',')
                 organism_name = parsed_line[0]
                 organism_id = parsed_line[1]
                 organism_cat = parsed_line[2][:-1]
 
+                if os.path.exists(os.path.join(output_path, f"{organism_id}.csv")):
+                    print(
+                        f"File for Organism , {organism_id} Exist Pass From that Organism")
+                    continue
 
-                if os.path.exists(os.path.join(output_path , f"{organism_id}.csv")):
-                     print(f"File for Organism , {organism_id} Exist Pass From that Organism")
-                     continue
-                
-                for accession_id in tqdm(get_organism_accession_list(int(organism_id))[:] , desc=f"[{index+1} / {len(lines)}]"):
-                 
-                    accession_sequence = get_fasta_string(accession_id)
-                    response_json_item = get_accession_data(accession_id)
-                    locations = get_location_from_response_json(response_json_item)
+                for accession_id in tqdm(get_organism_accession_list(int(organism_id))[:], desc=f"[{index+1} / {len(lines)}]"):
+                    output_final = run(
+                        accession_id, output_final, organism_id, organism_name, organism_cat)
 
-                    if len(locations):
-                         output_final.append([
-                              accession_id , accession_sequence , ", ".join(locations) , organism_id , organism_name , organism_cat
-                         ])
-    
-                data_frame = pd.DataFrame(output_final , columns=['accession_id' , 'sequence' , 'locations' ,'organism_id' ,'organism_name' ,'organism_cat'   ])
-                data_frame.to_csv(os.path.join(output_path , f"{organism_id}.csv"))
+                data_frame = pd.DataFrame(output_final, columns=[
+                                          'accession_id', 'sequence', 'locations', 'organism_id', 'organism_name', 'organism_cat'])
+                data_frame.to_csv(os.path.join(
+                    output_path, f"{organism_id}.csv"))
 
                 print("Sleep For One Minute To Prevent API Request Blockage")
                 time.sleep(60)
 
-        zip_folder(output_path , './all.zip')
+        zip_folder(output_path, './all.zip')
     except FileNotFoundError:
-                print("Input File is Wrong")
+        print("Input File is Wrong")
     except IOError:
-                print("Error Reading File")
+        print("Error Reading File")

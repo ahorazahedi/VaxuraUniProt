@@ -1,0 +1,20 @@
+Homo sapiens,9606,Animal organisms
+Canis lupus familiaris,9615,Animal organisms
+Felis catus,9685,Animal organisms
+Equus caballus,9796,Animal organisms
+Bos taurus,9913,Animal organisms
+Sus scrofa domesticus,9825,Animal organisms
+Ovis aries,9940,Animal organisms
+Gallus gallus,9031,Animal organisms
+Mus musculus,10090,Animal organisms
+Rattus norvegicus,10116,Animal organisms
+Capra hircus,9925,Animal organisms
+Oryctolagus cuniculus,9986,Animal organisms
+Serinus canaria,9135,Animal organisms
+Taeniopygia guttata,59729,Animal organisms
+Cavia porcellus,10141,Animal organisms
+Melopsittacus undulatus,13146,Animal organisms
+Carassius auratus,7957,Animal organisms
+Danio rerio,7955,Animal organisms
+Apis mellifera,7460,Animal organisms
+Drosophila melanogaster,7227,Animal organisms
